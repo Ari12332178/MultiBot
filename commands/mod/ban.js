@@ -6,15 +6,15 @@ module.exports = {
     category: "mod",
     description: "Banir um usuário.",
     run: async (bot, msg, args) => {
-        const args = msg.content.split(' ').slice(1);
+        const banargs = msg.content.split(' ').slice(1);
 ​
         const user = msg.mentions.users.first();
-        const banReason = args.slice(1).join(' ');
+        const banReason = banargs.slice(1).join(' ');
         ​
         if (!user) {
         try {
-            if (!msg.guild.members.get(args.slice(0, 1).join(' '))) throw new Error('Não encontrei o ID do usuário!');
-                user = msg.guild.members.get(args.slice(0, 1).join(' '));
+            if (!msg.guild.members.get(banargs.slice(0, 1).join(' '))) throw new Error('Não encontrei o ID do usuário!');
+                user = msg.guild.members.get(banargs.slice(0, 1).join(' '));
                 user = user.user;
             } catch (error) {
                 return msg.reply('Não encontrei o ID do usuário!');
