@@ -12,8 +12,8 @@ module.exports = {
 
         if (!user) {
         try {
-            if (!msg.guild.members.get(args[0])) throw new Error('Nãoo encontrei o ID do usuário!');
-                user = msg.guild.members.get(args[0]);
+            if (!msg.guild.members.get(banargs.slice(0, 1).join(' '))) throw new Error('Não encontrei o ID do usuário!');
+                user = msg.guild.members.get(banargs.slice(0, 1).join(' '));
                 user = user.user;
             } catch (error) {
                 return msg.reply('Não encontrei o ID do usuário!');
