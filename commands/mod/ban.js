@@ -12,7 +12,7 @@ module.exports = {
 
         if (!user) {
         try {
-            if (!msg.guild.members.get(args[0])) throw new Error('Não encontrei o ID do usuário!');
+            if (!msg.guild.members.get(args[0])) throw new Error('Nãoo encontrei o ID do usuário!');
                 user = msg.guild.members.get(args[0]);
                 user = user.user;
             } catch (error) {
