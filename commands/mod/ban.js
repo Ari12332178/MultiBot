@@ -7,7 +7,6 @@ module.exports = {
     description: "Banir um usuário.",
     run: async (bot, msg, args) => {
         const banargs = msg.content.split(' ').slice(1);
-​
         const user = msg.mentions.users.first();
         const banReason = banargs.slice(1).join(' ');
         ​
