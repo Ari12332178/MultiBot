@@ -9,7 +9,7 @@ module.exports = {
         const banargs = msg.content.split(' ').slice(1);
         const user = msg.mentions.users.first();
         const banReason = banargs.slice(1).join(' ');
-        ​
+
         if (!user) {
         try {
             if (!msg.guild.members.get(banargs.slice(0, 1).join(' '))) throw new Error('Não encontrei o ID do usuário!');
@@ -19,12 +19,13 @@ module.exports = {
                 return msg.reply('Não encontrei o ID do usuário!');
             }
         }
+        
         if (user === msg.author) return msg.channel.send('Você não pode se banir. 🤦‍♂️');
         if (!reason) return msg.reply('Digite o motivo do banimento!');
         if (!msg.guild.member(user).bannable) return msg.reply('Eu não tenho as permissões suficientes para banir este usuário');
-        ​
+
         await msg.guild.ban(user)
-        ​
+
         const Discord = require('discord.js');
         const banEmbed = new RichEmbed()
         .setColor('RED')
